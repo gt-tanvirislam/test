@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Environment — ignore every .env variant, allow only the committed template.
+# (Broader than .env.local: also covers .env.production, .env.staging, etc.)
+.env
+.env.*
+!.env.example
+
+# Secrets / credentials — defensive net so a leaked credential file can never
+# be committed even if copied into the repo. The takeover audit found a
+# plaintext Supabase credentials file (superbase.txt) in the workspace; these
+# rules ensure it — and anything like it — stays out of version control.
+# See docs/security/credential-rotation.md.
+superbase.txt
+supabase.txt
+secrets/
+*.secret
+*.secrets
+credentials*.json
+*service-role*
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+
+# Misc
+.turbo/
+*.tsbuildinfo
+.eslintcache
